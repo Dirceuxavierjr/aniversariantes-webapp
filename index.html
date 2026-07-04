@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aniversariantes</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <span class="mark">🎂</span>
+    <h1>Aniversariantes</h1>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="card form-card">
+    <h2 id="form-title">Novo aniversariante</h2>
+    <form id="form-aniversariante">
+      <input type="hidden" id="f-id">
+
+      <label for="f-nome">Nome</label>
+      <input type="text" id="f-nome" required placeholder="Ex: Maria Xavier">
+
+      <label for="f-data">Data de nascimento</label>
+      <input type="text" id="f-data" required placeholder="DD/MM/AAAA" pattern="\d{2}/\d{2}/\d{4}">
+
+      <label for="f-telefone">Telefone (WhatsApp, com DDI/DDD)</label>
+      <input type="tel" id="f-telefone" required placeholder="Ex: 5544999999999">
+
+      <label for="f-mensagem">Mensagem personalizada (opcional)</label>
+      <textarea id="f-mensagem" rows="2" placeholder="Deixe em branco para usar a mensagem padrão"></textarea>
+
+      <div class="form-actions">
+        <button type="submit" id="btn-salvar">Adicionar</button>
+        <button type="button" id="btn-cancelar" class="secondary hidden">Cancelar edição</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="list-section">
+    <div class="list-header">
+      <h2>Lista</h2>
+      <span id="contador" class="badge">0</span>
+    </div>
+    <div id="loading" class="loading">Carregando...</div>
+    <ul id="lista" class="lista"></ul>
+    <p id="vazio" class="vazio hidden">Nenhum aniversariante cadastrado ainda.</p>
+  </section>
+
+</main>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

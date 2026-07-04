@@ -1,0 +1,241 @@
+:root {
+  --ink: #2B2140;
+  --plum: #3D2C4A;
+  --flame-1: #FF6B4A;
+  --flame-2: #FFB84D;
+  --paper: #FBF9F6;
+  --card: #FFFFFF;
+  --line: #E7E2DA;
+  --muted: #877E90;
+  --good: #3D8361;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2 {
+  font-family: 'Fraunces', serif;
+  margin: 0;
+}
+
+.topbar {
+  background: linear-gradient(135deg, var(--plum), #2A2038);
+  padding: 22px 20px 26px;
+  border-radius: 0 0 24px 24px;
+}
+
+.topbar-inner {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mark {
+  font-size: 26px;
+  filter: drop-shadow(0 2px 6px rgba(255, 107, 74, 0.5));
+}
+
+.topbar h1 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.wrap {
+  max-width: 520px;
+  margin: -14px auto 40px;
+  padding: 0 16px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(43, 33, 64, 0.08);
+  border: 1px solid var(--line);
+}
+
+.form-card h2 {
+  font-size: 17px;
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  margin: 12px 0 6px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  font-family: inherit;
+  font-size: 15px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+input:focus, textarea:focus {
+  outline: 2px solid var(--flame-1);
+  outline-offset: 1px;
+  background: #fff;
+}
+
+textarea { resize: vertical; }
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+button {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: transform 0.08s ease, opacity 0.15s ease;
+}
+
+button:active { transform: scale(0.97); }
+
+#btn-salvar {
+  flex: 1;
+  color: #fff;
+  background: linear-gradient(135deg, var(--flame-1), var(--flame-2));
+}
+
+.secondary {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+.hidden { display: none !important; }
+
+.list-section { margin-top: 28px; }
+
+.list-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.list-header h2 { font-size: 17px; }
+
+.badge {
+  background: var(--plum);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.item-data {
+  flex: 0 0 auto;
+  text-align: center;
+  min-width: 46px;
+}
+
+.item-data .dia {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--flame-1);
+}
+
+.item-data .mes {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+.item-info { flex: 1; min-width: 0; }
+
+.item-info .nome {
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-info .tel {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.item-actions { display: flex; gap: 6px; flex: 0 0 auto; }
+
+.icon-btn {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 7px 9px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+.loading, .vazio {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  padding: 20px 0;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.toast.error { background: #A6403A; }
