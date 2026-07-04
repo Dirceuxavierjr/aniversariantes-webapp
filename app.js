@@ -10,7 +10,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbxKit_hVTerKv7LQePlvVBw
  * mas evita que a URL sozinha (compartilhada por engano, por exemplo) seja
  * suficiente para acessar os dados.
  */
-const API_KEY = "COLE_AQUI_A_MESMA_CHAVE_DA_PROPRIEDADE_API_KEY";
+const API_KEY = "cff8c1350d2edf513b7479e56e831309efbcc06f";
 
 const form = document.getElementById("form-aniversariante");
 const listaEl = document.getElementById("lista");
