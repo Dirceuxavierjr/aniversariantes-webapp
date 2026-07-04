@@ -4,6 +4,14 @@
  */
 const API_URL = "https://script.google.com/macros/s/AKfycbxKit_hVTerKv7LQePlvVBwQmat3YKvFnUNi9X78nGBxBRdJGnmhJjx0nX9NUqHdlk6/exec";
 
+/**
+ * Mesma chave configurada na propriedade de script API_KEY do backend.
+ * Não impede alguém com acesso ao código-fonte deste arquivo de ler a chave,
+ * mas evita que a URL sozinha (compartilhada por engano, por exemplo) seja
+ * suficiente para acessar os dados.
+ */
+const API_KEY = "COLE_AQUI_A_MESMA_CHAVE_DA_PROPRIEDADE_API_KEY";
+
 const form = document.getElementById("form-aniversariante");
 const listaEl = document.getElementById("lista");
 const loadingEl = document.getElementById("loading");
@@ -24,7 +32,7 @@ async function carregarLista() {
   vazioEl.classList.add("hidden");
 
   try {
-    const res = await fetch(`${API_URL}?action=list`);
+    const res = await fetch(`${API_URL}?action=list&key=${encodeURIComponent(API_KEY)}`);
     const json = await res.json();
     if (!json.ok) throw new Error(json.error);
 
@@ -102,7 +110,7 @@ listaEl.addEventListener("click", async (e) => {
 
   if (acao === "edit") {
     try {
-      const res = await fetch(`${API_URL}?action=list`);
+      const res = await fetch(`${API_URL}?action=list&key=${encodeURIComponent(API_KEY)}`);
       const json = await res.json();
       const pessoa = json.data.find((p) => p.id === id);
       if (!pessoa) return;
@@ -174,7 +182,7 @@ function validarData(str) {
 async function chamarApi(body) {
   const res = await fetch(API_URL, {
     method: "POST",
-    body: JSON.stringify(body)
+    body: JSON.stringify({ ...body, key: API_KEY })
   });
   const json = await res.json();
   if (!json.ok) throw new Error(json.error || "Erro desconhecido");
